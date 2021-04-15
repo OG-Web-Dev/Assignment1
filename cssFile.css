@@ -1,0 +1,73 @@
+
+body{
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+    background-image: url("finalbackground.jpg");
+    background-size: cover;
+}
+
+.container {
+    padding-top: 60px;
+}
+
+.info_pic{
+    border-radius: 50%;
+    width: 245px;
+}
+#OrganizationBar{
+    width: 85%;
+}
+#CollaborationBar{
+    width:80%;
+}
+#ManagementBar{
+    width: 99%;
+}
+#ProblemSolvingBar{
+    width: 100%;
+}
+iframe{
+    height: 375px;
+    width: 375px;
+    position: center;
+
+}
+.sm-icon{
+    width: 25px;
+}
+.fsm-icon{
+    width: 25px;
+}
+.recsm-icon{
+    width: 20px;
+}
+
+#navbar{
+    text-align: center;
+    background-color: gray;
+}
+.table-borderless{
+    margin-left: auto;
+    margin-right: auto;
+}
+.form-inline{
+    color: black;
+}
+.logo{
+    width: 50px;
+}
+.sully_pic{
+    border-radius: 50%;
+    width: 180px;
+}
+.boo-pic{
+    border-radius: 50%;
+    width: 160px;
+}
+
+.footer_icons a:hover{
+    background-color: lightgray;
+}
