@@ -2,8 +2,6 @@ window.onload=function () {
 
 
     let modal = document.getElementById("myModal");
-
-// Get the image and insert it inside the modal - use its "alt" text as a caption
     let img = document.getElementById("info_pic");
     let modalImg = document.getElementById("img01");
     let captionText = document.getElementById("caption");
@@ -13,10 +11,10 @@ window.onload=function () {
         captionText.innerHTML = this.alt;
     }
 
-// Get the <span> element that closes the modal
+
     let span = document.getElementsByClassName("close")[0];
 
-// When the user clicks on <span> (x), close the modal
+
     span.onclick = function () {
         modal.style.display = "none";
     }
@@ -36,14 +34,36 @@ window.onload=function () {
 
 //3
 
+    $("[id='comment']").attr("required", true);
+    $("[id='first-name']").attr("required", true);
+    $("[id='last-name']").attr("required", true);
+    $("[id='email']").attr("required", true);
+    $("[id='phone']").attr("required", true);
+
+
+
     let textarea = document.getElementById("comment");
     let current = document.getElementById("current");
+    textarea.setAttribute("maxlength","200");
+    if(/^[0-9]+$/.test(textarea.getAttribute("maxlength"))) {
+        let func = function() {
+            let len = parseInt(this.getAttribute("maxlength"), 10);
+
+            if(this.value.length == len) {
+                alert('Maximum length exceeded: ' + len);
+                this.value = this.value.substr(0, len);
+                return false;
+            }
+        }
+        textarea.onkeyup = func;
+    }
+
+
+
     textarea.addEventListener("keyup", updateCounter);
 
     function updateCounter() {
-
         current.innerHTML = textarea.textLength;
-
     }
 
     //6
