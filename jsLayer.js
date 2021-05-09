@@ -1,17 +1,37 @@
-let organization  = document.getElementById("OrganizationBar");
-organization.style.width=0+"%";
-organization.onclick=advanceProgressBar;
+organization=null;
+collaboration = null;
+management=null;
+problemSolving= null;
 
-//organization.style.width=i+"%";
+window.onload=initElementReferences;
+
+function initElementReferences()
+{
+    organization  = document.getElementById("OrganizationBar");
+    organization.style.width=0+"%";
+    organization.addEventListener("mouseover",advanceProgressBar);
+
+    collaboration = document.getElementById("CollaborationBar");
+    collaboration.style.width=0+"%";
+    collaboration.onmouseover=advanceProgressBar;
+
+    management = document.getElementById("ManagementBar");
+    management.style.width=0+"%";
+    management.onmouseover=advanceProgressBar;
+
+    problemSolving = document.getElementById("ProblemSolvingBar");
+    problemSolving.style.width=0+"%";
+    problemSolving.onmouseover=advanceProgressBar;
+}
+
 function advanceProgressBar()
 {
   let width=0;
   let element=document.getElementById(this.id);
-  element.style.width=1+"%";
+  element.style.width=0+"%";
   advance();
     function advance()
     {
-        //let id= document.getElementById(this.id);
         width++;
         let currentWidth=parseInt(element.style.width.replace("%",""));
 
