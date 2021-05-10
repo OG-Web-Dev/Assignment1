@@ -70,17 +70,19 @@ function generateFormOnBottom()
 
 function generateForm()
 {
-    var down = document.getElementById("body");
+    //var down = document.getElementById("body");
 
     // Create a break line element
     var br = document.createElement("br");
     GFG_Fun();
     function GFG_Fun() {
 
-        var down = document.getElementById("GFG_DOWN");
         GFG_Fun();
 
         function GFG_Fun() {
+
+            br= document.createElement("br");
+            br.setAttribute("type","br");
 
             // Create a form synamically
             var form = document.createElement("form");
@@ -92,42 +94,68 @@ function generateForm()
             name.setAttribute("type","name");
             name.setAttribute("name","name");
             name.setAttribute("placeholder","Full name");
+            name.setAttribute("required","");
 
+            // Create an input element for phone
+            var phone = document.createElement("input");
+            phone.setAttribute("type", "phone");
+            phone.setAttribute("name", "phone");
+            phone.setAttribute("placeholder", "Phone number");
+            phone.setAttribute("required","");
 
             // Create an input element for emailID
-            var ID = document.createElement("input");
-            ID.setAttribute("type", "text");
-            ID.setAttribute("name", "emailID");
-            ID.setAttribute("placeholder", "E-Mail ID");
+            var email = document.createElement("input");
+            email.setAttribute("type", "text");
+            email.setAttribute("name", "email");
+            email.setAttribute("placeholder", "Email address");
+            email.setAttribute("required","");
 
-            // Create an input element for password
-            var PWD = document.createElement("input");
-            PWD.setAttribute("type", "password");
-            PWD.setAttribute("name", "password");
-            PWD.setAttribute("placeholder", "Password");
+            var freeText = document.createElement("input");
+            freeText.setAttribute("type","text");
+            freeText.setAttribute("name","free text");
+            freeText.setAttribute("placeholder","Tell me anything!");
+            freeText.style.height="100%";
 
             // Create a submit button
             var s = document.createElement("input");
             s.setAttribute("type", "submit");
             s.setAttribute("value", "Submit");
 
+           form.append(br.cloneNode(true));
 
             form.append(name);
-            // Append the email_ID input to the form
-            form.append(ID);
+            form.append(br.cloneNode(true));
 
-            // Append the password to the form
-            form.append(PWD);
+             //Append the phone to the form
+            form.append(phone);
+            form.append(br.cloneNode(true));
+
+             //Append the email_ID input to the form
+            form.append(email);
+            form.append(br.cloneNode(true));
+            form.append(br.cloneNode(true));
+
+            form.append(freeText);
+            form.append(br.cloneNode(true));
+            form.append(br.cloneNode(true));
+
 
             // Append the button to the form
             form.append(s);
+            form.appendChild(br.cloneNode(true));
 
             document.getElementsByTagName("body")[0].appendChild(form);
             let boundry= document.getElementById("boundry");
-            br= document.createElement("br");
-            br.setAttribute("type","br");
-            boundry.parentNode.insertBefore(br,boundry.nextSibling);
 
+
+            let section = document.createElement("ContactMe");
+            section.setAttribute("type","section");
+
+            let title = document.createElement("ContactTitle");
+            title.setAttribute("type","h1");
+            title.innerHTML="Contact Me";
+
+            boundry.parentNode.insertBefore(br,boundry.nextSibling);
             br.parentNode.insertBefore(form,br.nextSibling);
             form.style.textAlign="center";
         }
