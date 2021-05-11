@@ -147,7 +147,7 @@ function generateForm()
 
             let textCounter= document.createElement("span");
             textCounter.setAttribute("id","textCounter");
-            textCounter.innerHTML="0 characters out of 200";
+            textCounter.innerHTML="0 / 200";
             freeText.onkeyup=characterCount;
             form.append(textCounter);
             form.append(br.cloneNode(true));
@@ -178,7 +178,7 @@ function characterCount()
 {
     let text= document.getElementById("freeText");
     let counter= document.getElementById("textCounter");
-    counter.innerHTML=text.value.length +" characters out of 200";
+    counter.innerHTML=" " +text.value.length +" / 200";
 
     if (this.value.length>=200)
     {
