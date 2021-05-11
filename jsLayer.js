@@ -112,6 +112,7 @@ function generateForm()
 
             var freeText = document.createElement("input");
             freeText.setAttribute("type","text");
+            freeText.setAttribute("id","freeText");
             freeText.setAttribute("name","free text");
             freeText.setAttribute("placeholder","Tell me anything!");
             freeText.style.height="100%";
@@ -123,8 +124,15 @@ function generateForm()
 
            form.append(br.cloneNode(true));
 
+            let title = document.createElement("h1");
+            title.setAttribute("type","h1");
+            title.innerHTML="Contact Me";
+            form.append(title);
+
+            form.append(br.cloneNode(true));
             form.append(name);
             form.append(br.cloneNode(true));
+
 
              //Append the phone to the form
             form.append(phone);
@@ -136,6 +144,12 @@ function generateForm()
             form.append(br.cloneNode(true));
 
             form.append(freeText);
+
+            let textCounter= document.createElement("span");
+            textCounter.setAttribute("id","textCounter");
+            textCounter.innerHTML="0 characters out of 200";
+            freeText.onkeyup=characterCount;
+            form.append(textCounter);
             form.append(br.cloneNode(true));
             form.append(br.cloneNode(true));
 
@@ -147,17 +161,31 @@ function generateForm()
             document.getElementsByTagName("body")[0].appendChild(form);
             let boundry= document.getElementById("boundry");
 
+            //
+            // let section = document.createElement("h1");
+            // section.setAttribute("type","section");
 
-            let section = document.createElement("ContactMe");
-            section.setAttribute("type","section");
 
-            let title = document.createElement("ContactTitle");
-            title.setAttribute("type","h1");
-            title.innerHTML="Contact Me";
 
             boundry.parentNode.insertBefore(br,boundry.nextSibling);
             br.parentNode.insertBefore(form,br.nextSibling);
             form.style.textAlign="center";
         }
     }
+}
+
+function characterCount()
+{
+    let text= document.getElementById("freeText");
+    let counter= document.getElementById("textCounter");
+    counter.innerHTML=text.value.length +" characters out of 200";
+
+    if (this.value.length>=200)
+    {
+        this.value=this.value.substring(0,200);
+        counter.style.color="red";
+    }
+    else
+        counter.style.color="black";
+    console.log(this.value.length);
 }
