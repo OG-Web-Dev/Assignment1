@@ -62,7 +62,6 @@ function handleForm() {
             let len = parseInt(this.getAttribute("maxlength"), 10);
 
             if(this.value.length >= len) {
-                //alert('Maximum length exceeded: ' + len);
                 this.value = this.value.substr(0, len);
                 return false;
             }
@@ -74,14 +73,12 @@ function handleForm() {
 
     function updateCounter() {
         current.innerHTML = textarea.textLength;
-
-        //********* Changing the text color of the counter *********//
         if (textarea.textLength>=200)
             current.style.color="red";
 
         else
             current.style.color="black";
-        //********* Changing the text color of the counter *********//
+
     }
 }
 function initBackToTopListener(){
@@ -97,8 +94,6 @@ function initBackToTopListener(){
 }
 function enableScrollToTop(){
     let mybutton=document.getElementById("backToTopBtn");
-    //the first part of the boolean expression always returns false and never used.
-    //if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
     if (document.documentElement.scrollTop>20){
         mybutton.style.display = "block";
     } else {
